@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../config.gradle'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        applicationId appId
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode vCode
+        versionName vName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+
+    implementation project(":base")
+    implementation project(":domain")
+    implementation project(":i_token")
+    implementation project(":i_auth")
+    implementation project(":i_session")
+    implementation project(":i_user")
+    implementation project(":i_web_socket")
+    implementation project(":i_transactions")
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "androidx.core:core-ktx:$kotlixExtVersion"
+
+    //app compat
+    implementation "com.google.android.material:material:$xMaterial"
+    implementation "androidx.appcompat:appcompat:$xVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$xConstraint"
+
+    //Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$ktxLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$ktxLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation group: 'androidx.lifecycle', name:'lifecycle-viewmodel-ktx', version: "$ktxLifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+
+    //koin
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-android-viewmodel:$koinVersion"
+
+    //adapter
+    implementation "ru.surfstudio.android:easyadapter:$easyAdapterVersion"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingVersion"
+
+    //cicerone
+    implementation "ru.terrakok.cicerone:cicerone:$ciceroneVersion"
+
+    //tests
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

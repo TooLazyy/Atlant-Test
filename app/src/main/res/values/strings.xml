@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">AtlantTest</string>
+
+    <!--region auth-->
+    <string name="auth_email_hint">Email</string>
+    <string name="auth_password_hint">Password</string>
+    <string name="auth_login">Login</string>
+    <!--endregion-->
+
+    <!--region trans-->
+    <string name="trans_profile_info">Name: %s %s, Email: %s</string>
+    <string name="trans_socket_state">WebSocket state: %s</string>
+    <string name="trans_start">Запуск</string>
+    <string name="trans_dispose">Сбросить</string>
+    <string name="trans_stop">Остановка</string>
+    <!--endregion-->
+
+</resources>

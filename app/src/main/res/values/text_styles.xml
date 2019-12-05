@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text" parent="TextAppearance.AppCompat"/>
+
+    <style name="Normal" parent="Text">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Normal.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

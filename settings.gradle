@@ -1,0 +1,2 @@
+include ':app', ':i_token', ':base', ':i_auth', ':i_session', ':i_user', ':domain', ':i_transactions', ':i_web_socket'
+rootProject.name='AtlantTest'
