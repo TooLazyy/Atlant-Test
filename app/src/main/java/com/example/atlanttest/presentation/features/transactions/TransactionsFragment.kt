@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.atlanttest.R
+import com.example.atlanttest.extensions.EventObserver
+import com.example.atlanttest.extensions.toast
 import kotlinx.android.synthetic.main.fragment_transactions.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import ru.surfstudio.android.easyadapter.EasyAdapter
@@ -34,6 +36,9 @@ class TransactionsFragment : Fragment(R.layout.fragment_transactions) {
             if (it != null) {
                 render(it)
             }
+        })
+        vm.errorData.observe(viewLifecycleOwner, EventObserver {
+            toast(R.string.error_common)
         })
     }
 

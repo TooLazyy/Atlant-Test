@@ -2,6 +2,10 @@
 
     <string name="app_name">AtlantTest</string>
 
+    <!--region-->
+    <string name="error_common">Произошал ошибка. Попробуйте позднее.</string>
+    <!--endregion-->
+
     <!--region auth-->
     <string name="auth_email_hint">Email</string>
     <string name="auth_password_hint">Password</string>

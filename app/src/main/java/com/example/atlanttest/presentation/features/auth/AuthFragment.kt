@@ -5,6 +5,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.atlanttest.R
+import com.example.atlanttest.extensions.EventObserver
+import com.example.atlanttest.extensions.toast
 import kotlinx.android.synthetic.main.fragment_auth.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -28,6 +30,9 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
             if (it != null) {
                 render(it)
             }
+        })
+        vm.errorData.observe(viewLifecycleOwner, EventObserver {
+            toast(R.string.error_common)
         })
     }
 
