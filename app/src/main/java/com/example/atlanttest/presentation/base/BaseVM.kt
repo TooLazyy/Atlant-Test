@@ -32,6 +32,7 @@ abstract class BaseVM<S : BaseViewState> : ViewModel(), KoinComponent {
     protected fun onError(error: Throwable) {
         state.loading = LoadingState.None
         errorLiveData.value = Event(error)
+        render(state)
     }
 
     fun exit() {
